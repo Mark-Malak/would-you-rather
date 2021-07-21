@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import CreateQuestion from './components/CreateQuestion';
+import QuestionList from './components/QuestionList';
 import Login from './components/Login';
 
 import { Route } from 'react-router-dom'
@@ -24,6 +25,9 @@ class App extends React.Component {
          )} />
          <Route exact path='/' render={() => (
             <Login/>
+         )} />
+         <Route exact path='/home' render={() => (
+            <QuestionList/>
          )} />
          
          
