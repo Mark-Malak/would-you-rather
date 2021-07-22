@@ -6,12 +6,15 @@ import QuestionList from './components/QuestionList';
 import Login from './components/Login';
 import { Route } from 'react-router-dom'
 import LeaderBoard from './components/LeaderBoard';
-
+import { connect } from 'react-redux'
+import { handleInitialData } from '../actions/shared'
 
 
 class App extends React.Component {
 
-
+   componentDidMount() {
+      this.props.dispatch(handleInitialData())
+    }
 
    render() {
       return (
@@ -47,4 +50,4 @@ class App extends React.Component {
    }
 }
 
-export default App;
+export default connect()(App) 
