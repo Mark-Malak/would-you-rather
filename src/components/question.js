@@ -8,7 +8,7 @@ const question = () => {
             </div>
             <div className="questionBody">
                 <div className="avatar">
-                    <Avatar style={{ height: '150px' }}  >P</Avatar>
+                    <Avatar style={{ height: '80px' , width: '80px' }}  >P</Avatar>
                 </div>
 
                 <div className="questionBody-poll">

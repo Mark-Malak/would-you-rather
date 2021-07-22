@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
 import Question from './Question';
+import Poll from './Poll';
 const questionList = () => {
     return (
         <div className = "question-list-container">
@@ -18,10 +19,10 @@ const questionList = () => {
                    <Question />
                 </li>
                 <li>
-                   <Question />
+                  <Poll/>
                 </li>
                 <li>
-                   <Question />
+                <Poll/>
                 </li>
                 </ul>
             </div>

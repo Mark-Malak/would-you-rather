@@ -73,26 +73,30 @@
   margin: 0 auto  ;
   display: flex;
   flex-direction: row;
-  border: 1px rgb(255, 183, 183) solid;
+
   padding: 5px; /* this */
 }
 
 .avatar{
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: wrap;
+  width: 30%;
+
   
 }
 
 .questionBody  div {
-  flex: 1 1 auto;
-  border: 1px rgb(255, 197, 197) solid;
+ 
+  border: 1px rgb(228, 228, 228) solid;
   text-align: center;
 
   margin: 2px  /* and that, will result in a 10px gap */
 }
 
+.questionBody-poll{
+  width:70% ; 
+}
 
 .header h3{
   background-color: rgb(236, 236, 236) ;

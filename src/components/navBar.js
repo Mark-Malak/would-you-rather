@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Tabs, Tab } from '@material-ui/core/';
+import { AppBar, Tabs, Tab  ,Avatar} from '@material-ui/core/';
 import { Link } from 'react-router-dom'
 class NavBar extends React.Component {
 
@@ -7,7 +7,7 @@ class NavBar extends React.Component {
         return (
             <div>
 
-                <AppBar color="#FFFFFF" position="static">
+                <AppBar  color="#FFFFFF" position="static">
                     <Tabs
                         variant="fullWidth"
                         aria-label="nav tabs example"
@@ -23,7 +23,11 @@ class NavBar extends React.Component {
                         <Link to = "/leaderboard" >
                             <Tab label="Leaderboard" />
                         </Link>
-                        <Tab color ="#000000" disabled label="Hello , dear potato" />
+                        
+                             <Tab color ="#000000" disabled label="Hello , dear potato" />
+                            
+                        
+                       
                         <Link to = "/" >
                             <Tab label="Logout" />
                         </Link>
