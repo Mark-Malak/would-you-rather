@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
+import Question from './Question';
 const questionList = () => {
     return (
         <div className = "question-list-container">
@@ -10,15 +11,18 @@ const questionList = () => {
            
             <div>
                 <ul>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
-                    <li>question </li>
+                <li>
+                   <Question />
+                </li>
+                <li>
+                   <Question />
+                </li>
+                <li>
+                   <Question />
+                </li>
+                <li>
+                   <Question />
+                </li>
                 </ul>
             </div>
         </div>

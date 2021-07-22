@@ -7,7 +7,7 @@
   position: absolute;
   left: 0;
   width: 100%;
-  overflow: hidden; 
+  overflow: auto; 
     
    
 
@@ -36,15 +36,67 @@
 }
 
 .question-list-container{
+  
   background-color: #ffffff;
   margin: auto;
   width: 35%;
-  height: 75%;
   padding: 0px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
-
+.question-list-container ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px
+  ;
+}
+.question{
+  background-color: #ffffff;
+  margin: 0 auto ; 
+  margin-bottom: 20px;
+  width: 90%;
+  height: 25%;
+   
+  
+  padding: 0px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
 .list-btn{
     width:50%;
     display:block;
 }
+
+
+
+.questionBody{
+  margin: 0 auto  ;
+  display: flex;
+  flex-direction: row;
+  border: 1px rgb(255, 183, 183) solid;
+  padding: 5px; /* this */
+}
+
+.avatar{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  
+}
+
+.questionBody  div {
+  flex: 1 1 auto;
+  border: 1px rgb(255, 197, 197) solid;
+  text-align: center;
+
+  margin: 2px  /* and that, will result in a 10px gap */
+}
+
+
+.header h3{
+  background-color: rgb(236, 236, 236) ;
+  margin: 0px;
+  padding: 10px;
+}
+

@@ -10,30 +10,38 @@ import { Route } from 'react-router-dom'
 
 
 class App extends React.Component {
- 
- 
- 
-  render() {
-    return(
-       <div className="App">
-        <h3>Would you rather app </h3>
-         <NavBar />
-         <br/>
-         <br/>  
-         <Route path='/add' render={() => (
-            <CreateQuestion/>
-         )} />
-         <Route exact path='/' render={() => (
-            <Login/>
-         )} />
-         <Route exact path='/home' render={() => (
-            <QuestionList/>
-         )} />
-         
-         
-     </div>
-    )
-  }
+
+
+
+   render() {
+      return (
+         <div className="App">
+            <div className="fixed">
+            <div>
+                   <h4 style = {{margin:'0'}}>Would you rather app </h4>
+            </div>
+           
+               <NavBar />
+            </div>
+            <div className = "main">
+               <br />
+               <br />
+               <Route path='/add' render={() => (
+                  <CreateQuestion />
+               )} />
+               <Route exact path='/' render={() => (
+                  <Login />
+               )} />
+               <Route exact path='/home' render={() => (
+                  <QuestionList />
+               )} />
+
+            </div>
+
+
+         </div>
+      )
+   }
 }
 
 export default App;
