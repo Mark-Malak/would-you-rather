@@ -86,21 +86,32 @@
   
 }
 
-.questionBody  div {
+/* .questionBody  div div {
  
   border: 1px rgb(228, 228, 228) solid;
   text-align: center;
 
-  margin: 2px  /* and that, will result in a 10px gap */
-}
+  margin: 2px 
+} */
 
 .questionBody-poll{
   width:70% ; 
 }
 
-.header h3{
+.header{
   background-color: rgb(236, 236, 236) ;
   margin: 0px;
-  padding: 10px;
+  padding:0 5px;
 }
 
+.header h3 {
+  background-color: rgb(236, 236, 236) ;
+  margin: 0px;
+  padding:0 5px;
+}
+
+.shadow{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  height: 70%;
+  margin: auto ; 
+}

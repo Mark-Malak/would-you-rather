@@ -40,7 +40,7 @@ export default function CreateQuestion() {
                 <h3>OR</h3>
                 <input  type = "text" size = "60" placeholder="Enter option two text here ..."></input>
                 <hr />
-                <Button  variant="outlined" color="#000000" size = "big">Submit</Button>
+                <Button  className = "sign-btn" variant="outlined" color="#000000"> Submit</Button>
             </CardContent>
         </Card>
     );

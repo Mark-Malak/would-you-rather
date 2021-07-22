@@ -4,8 +4,8 @@ import NavBar from './components/NavBar';
 import CreateQuestion from './components/CreateQuestion';
 import QuestionList from './components/QuestionList';
 import Login from './components/Login';
-
 import { Route } from 'react-router-dom'
+import LeaderBoard from './components/LeaderBoard';
 
 
 
@@ -34,6 +34,9 @@ class App extends React.Component {
                )} />
                <Route exact path='/home' render={() => (
                   <QuestionList />
+               )} />
+               <Route exact path='/leaderboard' render={() => (
+                  <LeaderBoard />
                )} />
 
             </div>
