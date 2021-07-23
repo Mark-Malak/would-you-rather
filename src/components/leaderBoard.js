@@ -1,8 +1,4 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
-import Question from './Question';
-import Poll from './Poll';
-import AnsweredPoll from './AnsweredPoll';
 import LeaderBoardItem from './LeaderBoardItem';
 import {connect } from 'react-redux'
 class LeaderBoard extends React.Component {
@@ -13,9 +9,9 @@ class LeaderBoard extends React.Component {
             <div>
                 <ul>
                 {
-                    this.props.usersID &&(this.props.usersID.map( (id) => ( 
-                        <li key = {id} >
-                             <LeaderBoardItem  user = {this.props.users[id]} />
+                    this.props.usersID &&(this.props.sortedUsers.map( (user) => ( 
+                        <li key = {user.id} >
+                             <LeaderBoardItem  user = {this.props.users[user.id]} />
                         </li>
                        
                     )))
@@ -29,8 +25,14 @@ class LeaderBoard extends React.Component {
 function mapStateToProps({ users }) {
     return {
        usersID : Object.keys(users) ,
-       users
+       users , 
+       sortedUsers : Object.values(users).sort( function (a, b) {
+           const al =  Object.keys(a.answers).length + Object.keys(a.questions).length
+           const bl =  Object.keys(b.answers).length + Object.keys(b.questions).length
+        return bl - al;
+      })
     }
  }
 
 export default connect(mapStateToProps)(LeaderBoard)
+

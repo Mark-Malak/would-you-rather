@@ -25,7 +25,7 @@ class NavBar extends React.Component {
                             <Tab label="Leaderboard" />
                         </Link>
                         
-                             <Tab color ="#000000" disabled label= {this.props.user ? "Hello , Dear  " + this.props.user : ""} />
+                             <Tab color ="#000000" disabled label= {this.props.user ? "Hello , Dear  " + this.props.user.name : ""} />
                             
                         
                        
@@ -43,10 +43,10 @@ class NavBar extends React.Component {
 
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ users , authedUser }) {
 
     return {
-        user: authedUser
+        user: users[authedUser]
     }
 }
 

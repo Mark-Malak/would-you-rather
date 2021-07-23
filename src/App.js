@@ -46,6 +46,10 @@ class App extends React.Component {
                   <LeaderBoard />
                )} />
 
+               <Route exact path='/question' render={() => (
+                  <p>hehehehe</p>
+               )} />
+
             </div>
 
 
@@ -54,10 +58,10 @@ class App extends React.Component {
    }
 }
 
-function mapStateToProps({ users , authedUser }) {
+function mapStateToProps({ users, authedUser }) {
    return {
-      loading: authedUser === null, 
-      user : users[authedUser]
+      loading: authedUser === null,
+      user: users[authedUser]
    }
 }
 

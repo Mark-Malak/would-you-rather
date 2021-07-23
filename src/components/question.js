@@ -2,6 +2,7 @@ import React from 'react'
 import { Avatar, Button } from '@material-ui/core'
 import { formatQuestion } from '../utils/_DATA'
 import { connect } from 'react-redux'
+import {Link } from 'react-router-dom'
 class Question extends React.Component {
     render() {
         const { question , user } = this.props;
@@ -20,7 +21,10 @@ class Question extends React.Component {
                     <div className="questionBody-poll">
                         <h4> Would you rather </h4>
                         <p>{`..${optionOne.text}..`}</p>
-                        <Button className="sign-btn" variant="outlined">view poll</Button>
+                        <Link to = '/question'>
+                             <Button className="sign-btn" variant="outlined">view poll</Button>
+                        </Link>
+                       
                     </div>
                 </div>
 

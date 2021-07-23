@@ -8,15 +8,26 @@ import { render } from '@testing-library/react';
 import authedUser from '../reducers/authedUser';
 class QuestionList extends React.Component {
     state = { 
-        answered : false 
+        answered : false ,
+        btnOneColor : 'rgb(225 , 225 , 225 )' , 
+        btnTwoColor : 'white' , 
     }
-    answered(){
-        this.setState( () =>  ({answered:true})  );
+    answered(e){
+        
+        this.setState( () =>  ({
+            answered:true , 
+            btnOneColor : 'white' , 
+            btnTwoColor : 'rgb(225 , 225 , 225 )'
+        })  );
         console.log(this.state.answered)
     }
 
-    unAnswered(){
-        this.setState( () =>  ({answered:false})  );
+    unAnswered(e){
+        this.setState( () =>  ({
+            answered:false ,
+            btnOneColor : 'rgb(225 , 225 , 225 )' , 
+            btnTwoColor : 'white' ,
+        })  );
         console.log(this.state.answered)
     }
     render() {
@@ -24,8 +35,8 @@ class QuestionList extends React.Component {
         return (
             <div className="question-list-container">
                 <div>
-                    <Button onClick = {this.unAnswered.bind(this)} className="list-btn" variant="outlined">Unanswered Questions</Button>
-                    <Button onClick = {this.answered.bind(this)} className="list-btn" variant="outlined">Answered Questions</Button>
+                    <Button style={{ backgroundColor : this.state.btnOneColor }} onClick = {this.unAnswered.bind(this)} className="list-btn" variant="contained">Unanswered Questions</Button>
+                    <Button style={{ backgroundColor : this.state.btnTwoColor}} onClick = {this.answered.bind(this)} className="list-btn" variant="contained">Answered Questions</Button>
                 </div>
 
                 <div>
