@@ -7,7 +7,7 @@ class NavBar extends React.Component {
         return (
             <div>
 
-                <AppBar  color="#FFFFFF" position="static">
+                <AppBar  color="default" position="static">
                     <Tabs
                         variant="fullWidth"
                         aria-label="nav tabs example"

@@ -7,26 +7,26 @@ import Login from './components/Login';
 import { Route } from 'react-router-dom'
 import LeaderBoard from './components/LeaderBoard';
 import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
+import { handleInitialData } from './actions/shared'
 
 
 class App extends React.Component {
 
    componentDidMount() {
       this.props.dispatch(handleInitialData())
-    }
+   }
 
    render() {
       return (
          <div className="App">
             <div className="fixed">
-            <div>
-                   <h4 style = {{margin:'0'}}>Would you rather app </h4>
-            </div>
-           
+               <div>
+                  <h4 style={{ margin: '0' }}>Would you rather app </h4>
+               </div>
+
                <NavBar />
             </div>
-            <div className = "main">
+            <div className="main">
                <br />
                <br />
                <Route path='/add' render={() => (
@@ -36,7 +36,11 @@ class App extends React.Component {
                   <Login />
                )} />
                <Route exact path='/home' render={() => (
-                  <QuestionList />
+                  <div>
+                     {this.props.loading === true
+                        ? null
+                        : <QuestionList />}
+                  </div>
                )} />
                <Route exact path='/leaderboard' render={() => (
                   <LeaderBoard />
@@ -50,4 +54,10 @@ class App extends React.Component {
    }
 }
 
-export default connect()(App) 
+function mapStateToProps({ authedUser }) {
+   return {
+      loading: authedUser === null
+   }
+}
+
+export default connect(mapStateToProps)(App)
