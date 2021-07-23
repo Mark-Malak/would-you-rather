@@ -4,28 +4,33 @@ import Question from './Question';
 import Poll from './Poll';
 import AnsweredPoll from './AnsweredPoll';
 import LeaderBoardItem from './LeaderBoardItem';
-const LeaderBoard = () => {
-    return (
+import {connect } from 'react-redux'
+class LeaderBoard extends React.Component {
+    render(){
+        return (
         <div style = {{backgroundColor : 'transparent'}} className = "question-list-container">
            
             <div>
                 <ul>
-                <li>
-                <LeaderBoardItem />
-                </li>
-                <li>
-                <LeaderBoardItem />
-                </li>
-                <li>
-                <LeaderBoardItem />
-                </li>
-                <li>
-                <LeaderBoardItem />
-                </li>
+                {
+                    this.props.usersID &&(this.props.usersID.map( (id) => ( 
+                        <li key = {id} >
+                             <LeaderBoardItem  user = {this.props.users[id]} />
+                        </li>
+                       
+                    )))
+                }
                 </ul>
             </div>
         </div>
-    )
+    )}
 }
 
-export default LeaderBoard
+function mapStateToProps({ users }) {
+    return {
+       usersID : Object.keys(users) ,
+       users
+    }
+ }
+
+export default connect(mapStateToProps)(LeaderBoard)

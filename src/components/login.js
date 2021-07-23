@@ -7,32 +7,18 @@ import Button from '@material-ui/core/Button';
 import { Avatar } from '@material-ui/core'; 
 import Typography from '@material-ui/core/Typography';
 import logo from './wur.png'; //
+import { connect } from 'react-redux'
 
-const useStyles = makeStyles({
-    root: {
+const cardStyle = {
         margin: 'auto ',
-        width: '30%',
+        width: '30%'
+    }
 
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
-
-export default function Login() {
-    const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-
-    return (
-        <Card className={classes.root} variant="outlined">
+class Login extends React.Component{
+    
+render()
+    {return (
+        <Card style={cardStyle} variant="outlined">
             <CardContent>
                 <div>
                 <h3>Welcome to would you rather app !</h3>
@@ -45,13 +31,24 @@ export default function Login() {
 
             <select className="dropdown" name="users">
                 <option value="" disabled selected>Select User </option>
-                <option value="Mark">Mark</option>
-                <option value="Admin">Admin</option>
-                <option value="Normie">Normie</option>
+                {
+                   this.props.users && (this.props.usersID.map((id) => (
+                             <option value= {id} >{this.props.users[id].name}</option>
+                        )) )
+                }
             </select>
             <br />
             <Button className="sign-btn"  variant="outlined" color="#000000" size="big">Sign in </Button>
             </CardContent>
         </Card >
-    );
+    );}
 }
+
+function mapStateToProps({ users }) {
+    return {
+       usersID : Object.keys(users) ,
+       users
+    }
+ }
+
+ export default  connect(mapStateToProps)(Login) ; 

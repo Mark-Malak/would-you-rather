@@ -14,7 +14,6 @@ class Question extends React.Component {
                 </div>
                 <div className="questionBody">
                     <div className="avatar">
-                        {/* <Avatar src = "./av.png" style={{ height: '80px', width: '80px' }}  /> */}
                         <img src= {user.avatarURL}  class="myAvatar"></img>
                     </div>
 
