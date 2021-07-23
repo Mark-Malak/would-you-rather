@@ -54,9 +54,10 @@ class App extends React.Component {
    }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ users , authedUser }) {
    return {
-      loading: authedUser === null
+      loading: authedUser === null, 
+      user : users[authedUser]
    }
 }
 

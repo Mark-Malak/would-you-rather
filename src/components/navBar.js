@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Tabs, Tab  ,Avatar} from '@material-ui/core/';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 class NavBar extends React.Component {
 
     render() {
@@ -24,7 +25,7 @@ class NavBar extends React.Component {
                             <Tab label="Leaderboard" />
                         </Link>
                         
-                             <Tab color ="#000000" disabled label="Hello , dear potato" />
+                             <Tab color ="#000000" disabled label= {this.props.user ? "Hello , Dear  " + this.props.user : ""} />
                             
                         
                        
@@ -42,4 +43,11 @@ class NavBar extends React.Component {
 
 }
 
-export default NavBar;
+function mapStateToProps({ authedUser }) {
+
+    return {
+        user: authedUser
+    }
+}
+
+export default connect(mapStateToProps)(NavBar);

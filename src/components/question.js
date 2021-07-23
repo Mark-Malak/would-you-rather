@@ -34,10 +34,11 @@ function mapStateToProps ({authedUser, users , questions}, { id }) {
   
     return {
       authedUser,
+      user : users[question.author] ,
       question: question
         ? question
-        : null  ,
-        user : users[question.author]
+        : null  
+        
     }
   }
 export default connect(mapStateToProps)(Question)
