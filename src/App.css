@@ -107,7 +107,7 @@
 .header h3 {
   background-color: rgb(236, 236, 236) ;
   margin: 0px;
-  padding:0 5px;
+  padding:0 10px;
 }
 
 .shadow{
@@ -129,4 +129,10 @@
   height: 100%;
   display: block;
 
+}
+
+
+.cardStyle Card{
+  margin: 'auto ' ; 
+  width : '30%' 
 }

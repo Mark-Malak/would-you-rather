@@ -1,47 +1,74 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles({
-    root: {
-        margin: 'auto ',
-        width: '30%',
-        padding: '10px'
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
-
-export default function CreateQuestion() {
-    const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-
-    return (
-        <Card className={classes.root} variant="outlined">
-            <CardContent>
-                <h1>Create new Question</h1>
-                <hr />
-                <p align ="left">complete the question : </p>
-                <h2 align ="left" >Would you rather...</h2>
-                <input type = "text" size = "60" placeholder="Enter option one text here ..."></input>
-                <h3>OR</h3>
-                <input  type = "text" size = "60" placeholder="Enter option two text here ..."></input>
-                <hr />
-                <Button  className = "sign-btn" variant="outlined" color="#000000"> Submit</Button>
-            </CardContent>
-        </Card>
-    );
+import { connect } from 'react-redux'
+import { handleAddQuestion } from '../actions/questions';
+const cardStyle = {
+    margin: 'auto ',
+    width: '30%'
 }
+
+class CreateQuestion extends React.Component {
+
+    state = {
+        opt1: '',
+        opt2: ''
+
+    }
+    handleChange1 = (e) => {
+        const opt1 = e.target.value
+        this.setState(() => ({
+            opt1
+        }))
+    }
+
+    handleChange2 = (e) => {
+        const opt2 = e.target.value
+        this.setState(() => ({
+            opt2
+        }))
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const { opt1, opt2 } = this.state
+        console.log('options are : ', opt1, opt2)
+        const{dispatch} = this.props
+        dispatch( handleAddQuestion(opt1 , opt2) )
+
+        
+
+        this.setState(() => ({
+            opt1: '',
+            opt2: ''
+        }))
+    }
+
+    render() {
+        const { opt1, opt2 } = this.state
+        return (
+            <div>
+
+
+                <Card style={cardStyle} variant="outlined">
+                    <CardContent>
+                        <h1>Create new Question</h1>
+                        <hr />
+                        <p align="left">complete the question : </p>
+                        <h2 align="left" >Would you rather...</h2>
+                        <input value = {opt1} onChange={this.handleChange1} type="text" size="60" placeholder="Enter option one text here ..."></input>
+                        <h3>OR</h3>
+                        <input value ={opt2} onChange={this.handleChange2} type="text" size="60" placeholder="Enter option two text here ..."></input>
+                        <br/>
+                        <hr /> 
+                        <br/>
+                        <Button onClick={this.handleSubmit} className="sign-btn" variant="outlined" color="#000000"> Submit</Button>
+                    </CardContent>
+                </Card>
+            </div>
+        );
+    }
+}
+
+export default connect()(CreateQuestion) 
