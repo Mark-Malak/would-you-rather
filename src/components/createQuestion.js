@@ -4,6 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions';
+import { receiveUsers } from '../actions/users';
+import { handleUsersUpdate } from '../actions/shared';
 const cardStyle = {
     margin: 'auto ',
     width: '30%'
@@ -36,7 +38,7 @@ class CreateQuestion extends React.Component {
         console.log('options are : ', opt1, opt2)
         const{dispatch} = this.props
         dispatch( handleAddQuestion(opt1 , opt2) )
-
+        dispatch( handleUsersUpdate())
         
 
         this.setState(() => ({
@@ -63,7 +65,7 @@ class CreateQuestion extends React.Component {
                         <br/>
                         <hr /> 
                         <br/>
-                        <Button onClick={this.handleSubmit} className="sign-btn" variant="outlined" color="#000000"> Submit</Button>
+                        <Button disabled = {opt1 === '' || opt2 ===''} onClick={this.handleSubmit} className="sign-btn" variant="outlined" color="#000000"> Submit</Button>
                     </CardContent>
                 </Card>
             </div>

@@ -1,4 +1,4 @@
-import { getInitialData } from '../utils/api'
+import { getInitialData , getUsers} from '../utils/api'
 import { receiveUsers } from './users'
 import { receiveQuestions } from './questions'
 import { setAuthedUser } from './authedUser'
@@ -15,3 +15,13 @@ export function handleInitialData () {
       })
   }
 }
+
+export function handleUsersUpdate () {
+  return (dispatch) => {
+    return getUsers()
+      .then(({ users }) => {
+        dispatch(receiveUsers(users))
+      })
+  }
+}
+

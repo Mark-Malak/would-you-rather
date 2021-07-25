@@ -32,7 +32,8 @@ class Question extends React.Component {
                         }}>
                             <Button className="sign-btn" variant="outlined">view poll</Button>
                         </Link>
-
+                        <br/>
+                        
                     </div>
                 </div>
 

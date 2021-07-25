@@ -16,6 +16,12 @@ class App extends React.Component {
    componentDidMount() {
       this.props.dispatch(handleInitialData())
    }
+   // componentDidUpdate(prevProps , prevState){
+   //    console.log("somth changed reupdaaaaaaaaaaaaaaaaaaaaaaating")
+   //    if (prevState != null && prevState.questions !== this.state.questions) {
+   //       this.props.dispatch(handleInitialData())
+   //     }
+   // }
 
    render() {
 
