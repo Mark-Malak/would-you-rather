@@ -59,8 +59,9 @@ class QuestionList extends React.Component {
 function mapStateToProps({ questions, authedUser }) {
 
     const answeredQuesionIds = Object.values(questions).filter(q => (q.optionOne.votes.includes(authedUser) || q.optionTwo.votes.includes(authedUser)))
+    const questionIds = Object.values(questions).filter(q => !(q.optionOne.votes.includes(authedUser) || q.optionTwo.votes.includes(authedUser)))
     return {
-        questionIds: Object.keys(questions),
+        questionIds: questionIds.map( q => q.id) , 
         questions,
         answeredQuesionIds: answeredQuesionIds.map( q => q.id)
     }

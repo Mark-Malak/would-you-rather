@@ -9,6 +9,7 @@ import LeaderBoard from './components/LeaderBoard';
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
 import Poll from './components/Poll'
+import PollContainer from './components/PollContainer';
 
 
 class App extends React.Component {
@@ -55,7 +56,7 @@ class App extends React.Component {
                )} />
 
                <Route  path='/question' render={() => (
-                  <Poll/>
+                  <PollContainer/>
                )} />
 
             </div>
