@@ -43,12 +43,12 @@ class QuestionList extends React.Component {
                     <ul>
                         { !this.state.answered ? this.props.questionIds.map((id) => (
                             <li key={id}>
-                                <Question id={id} questions={this.props.questions} />
+                                <Question id={id} questions={this.props.questions}  answered = { this.state.answered } />
                             </li>
                         )) 
                         : this.props.answeredQuesionIds.map((id) => (
                             <li key={id}>
-                              <Question id={id} questions={this.props.questions} />
+                              <Question id={id} questions={this.props.questions} answered = { this.state.answered } />
                             </li>) )}
                     </ul>
                 </div>

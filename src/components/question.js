@@ -2,12 +2,13 @@ import React from 'react'
 import { Avatar, Button } from '@material-ui/core'
 import { formatQuestion } from '../utils/_DATA'
 import { connect } from 'react-redux'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 class Question extends React.Component {
+    
     render() {
-        const { question , user } = this.props;
-        console.log("user name is " + user.name) ; 
-        const { author , optionOne } = question ; 
+        const { question, user , answered } = this.props;
+        console.log("user name is " + user.name);
+        const { author, optionOne } = question;
         return (
             <div className="question">
                 <div className="header">
@@ -15,16 +16,23 @@ class Question extends React.Component {
                 </div>
                 <div className="questionBody">
                     <div className="avatar">
-                        <img src= {user.avatarURL}  class="myAvatar"></img>
+                        <img src={user.avatarURL} class="myAvatar"></img>
                     </div>
 
                     <div className="questionBody-poll">
                         <h4> Would you rather </h4>
                         <p>{`..${optionOne.text}..`}</p>
-                        <Link to = '/question'>
-                             <Button className="sign-btn" variant="outlined">view poll</Button>
+                        <Link to={{
+                            pathname: `/question/${question.id}` ,
+                            state: {
+                                question : question ,
+                                user : user , 
+                                answered 
+                            },
+                        }}>
+                            <Button className="sign-btn" variant="outlined">view poll</Button>
                         </Link>
-                       
+
                     </div>
                 </div>
 
@@ -32,16 +40,16 @@ class Question extends React.Component {
         )
     }
 }
-function mapStateToProps ({authedUser, users , questions}, { id }) {
+function mapStateToProps({ authedUser, users, questions }, { id }) {
     const question = questions[id]
-  
+
     return {
-      authedUser,
-      user : users[question.author] ,
-      question: question
-        ? question
-        : null  
-        
+        authedUser,
+        user: users[question.author],
+        question: question
+            ? question
+            : null
+
     }
-  }
+}
 export default connect(mapStateToProps)(Question)

@@ -4,10 +4,11 @@ import NavBar from './components/NavBar';
 import CreateQuestion from './components/CreateQuestion';
 import QuestionList from './components/QuestionList';
 import Login from './components/Login';
-import { Route } from 'react-router-dom'
+import { Route , useLocation } from 'react-router-dom'
 import LeaderBoard from './components/LeaderBoard';
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
+import Poll from './components/Poll'
 
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
    }
 
    render() {
+
       return (
          <div className="App">
             <div className="fixed">
@@ -46,8 +48,8 @@ class App extends React.Component {
                   <LeaderBoard />
                )} />
 
-               <Route exact path='/question' render={() => (
-                  <p>hehehehe</p>
+               <Route  path='/question' render={() => (
+                  <Poll/>
                )} />
 
             </div>

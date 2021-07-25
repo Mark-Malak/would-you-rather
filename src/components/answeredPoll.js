@@ -1,38 +1,43 @@
-import React from 'react'
-import { Avatar, Button } from '@material-ui/core'
-import ResultBar from  './ResultBar.js' 
-const AnsweredPoll = () => {
-    return (
-        <div className="question">
+import React  from 'react'
+
+class AnsweredPoll extends React.Component {
+    render(){
+        //may not load properly after answering question as u would be passing old user and question ??
+        const { user , question } = this.props 
+        const l1 = question.optionOne.votes.length
+        const l2 = question.optionTwo.votes.length
+        const total = l1  +  l2 
+        return (
+        <div style = { { margin : 'auto' ,  width : '30%'}} className="question">
             <div className="header">
-                <h3 align="left" >Potato asks : </h3>
+                <h3 align="left" >{user.name} asks : </h3>
             </div>
             <div className="questionBody">
                 <div className="avatar">
-                    <Avatar style={{ height: '110px' , width: '110px' }}  >P</Avatar>
+                  <img src={user.avatarURL} class="myAvatar"></img>
                 </div>
 
                 <div  className="questionBody-poll">
                     <h2> Results: </h2>
                     <div>
-                          <p>Would you rather Option1 ? </p>
-                          <progress id="file" max="100" value="70"> 70% </progress>
-                          <label for="file"> 70% </label>
-                          <p> 2 out of 3 votes </p>
+                          <p>Would you rather {question.optionOne.text}</p>
+                          <progress id="file" max="100" value={l1*100/total} / >
+                          <label for="file">{l1*100/total}% </label>
+                          <p> {l1} out of {total} votes </p>
                     </div>
                   
                     <div>
-                          <p>Would you rather Option1 ? </p>
-                          <progress id="file" max="100" value="30"> 70% </progress>
-                          <label for="file"> 30% </label>
-                          <p> 2 out of 3 votes </p>
+                          <p>Would you rather {question.optionTwo.text}</p>
+                          <progress id="file" max="100" value={l2*100/total} />
+                          <label for="file"> {l1*100/total}%</label>
+                          <p> {l2} out of {total} votes </p>
                     </div>
                    
                 </div>
             </div>
 
         </div>
-    )
+    )}
 }
 
 export default AnsweredPoll
