@@ -19,39 +19,53 @@ class Poll extends React.Component {
         chosed1: false,
         chosed2: false,
         chosen: '',
-        ans: false
+        ans: false , 
+        question : '' 
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { chosen } = this.state;
-        const { dispatch, question } = this.props
+        const { chosen  , question} = this.state;
+        const { dispatch  } = this.props
         console.log("sdsdsdsd");
         
         dispatch(handleSaveAnswer(question.id, chosen))
         dispatch(handleInitialData() , this.setState({ans:true})) ;
        
     }
+
+        componentDidMount(){
+            const id = this.props.match.params.qID
+            console.log(id)
+            this.setState ({question : this.props.questions[id]} )  
+        }
+    
     render() {
-        const { chosed1, chosed2, ans } = this.state
-        const { answered, user, question } = this.props
+        const { chosed1, chosed2 , question} = this.state
+        const {  users  , authedUser } = this.props
+        const user = users[question.author]
+        let ans = false 
+        if( Object.keys(users[authedUser].answers).includes(question.id)){
+            ans = true 
+        }
+        
         return (
            !ans? (<div style={cardStyle} className="question">
                 <div className="header">
-                    <h3 align="left" >{user.name} asks : </h3>
+                    <h3 align="left" >{user && user.name} asks : </h3>
                 </div>
                 <div className="questionBody">
                     <div className="avatar">
-                        <img src={user.avatarURL} class="myAvatar"></img>
+                        <img src={user && user.avatarURL} class="myAvatar"></img>
                     </div>
 
                     <div className="questionBody-poll">
                         <h4> Would you rather </h4>
                         <div style={{ 'text-align': 'left' }}  >
-                            <input onClick={() => !chosed1 ? this.setState({ chosed1: true, chosen: 'optionOne' }) : {}} type="radio" value="Male" name="gender" /> {question.optionOne.text}
+                            <input onClick={() => !chosed1 ? this.setState({ chosed1: true, chosen: 'optionOne' }) : {}} type="radio" value="Male" name="gender" /> {question && question.optionOne.text}
                             <br />
                             <hr />
-                            <input onClick={() => !chosed2 ? this.setState({ chosed2: true, chosen: 'optionTwo' }) : {}} type="radio" value="Female" name="gender" /> {question.optionTwo.text}
+                            <input onClick={() => !chosed2 ? this.setState({ chosed2: true, chosen: 'optionTwo' }) : {}} type="radio" value="Female" name="gender" /> {question && question.optionTwo.text}
                             <br />
                             <br />
                         </div>
@@ -59,10 +73,20 @@ class Poll extends React.Component {
                     </div>
                 </div>
 
-            </div>) : <AnsweredPoll  user = {user} question = {question}/>
+            </div>) : <AnsweredPoll  user = {user} id = {question.id}/>
         )
     }
 }
 
+function mapStateToProps({ users, authedUser , questions }) {
+    return {
+       questions,
+       users, 
+       user: users[authedUser],
+       authedUser
 
-export default connect()(Poll);
+    }
+ }
+
+ 
+export default connect(mapStateToProps)(Poll);

@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import CreateQuestion from './components/CreateQuestion';
 import QuestionList from './components/QuestionList';
 import Login from './components/Login';
-import { Route , useLocation } from 'react-router-dom'
+import { Route, useLocation } from 'react-router-dom'
 import LeaderBoard from './components/LeaderBoard';
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
@@ -55,9 +55,7 @@ class App extends React.Component {
                   <LeaderBoard />
                )} />
 
-               <Route  path='/question' render={() => (
-                  <PollContainer/>
-               )} />
+               <Route path="/question/:qID"  component ={Poll} />
 
             </div>
 
