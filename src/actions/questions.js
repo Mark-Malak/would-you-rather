@@ -30,15 +30,14 @@ export function handleAddQuestion (opt1, opt2) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
 
-    //dispatch(showLoading())
-    
+    dispatch(showLoading())
     const questionObj = { 
       optionOneText : opt1 ,
       optionTwoText : opt2 ,
        author: authedUser 
       } 
     return _saveQuestion( questionObj ).then( (formattedQuestion) => dispatch(addQuestion( formattedQuestion)) ).catch(err => console.log("opppppppsssssss"))
-      //.then(() => dispatch(hideLoading()))
+      .then(() => dispatch(hideLoading()))
   }
 }
 
@@ -46,7 +45,7 @@ export function handleSaveAnswer ( qId , Option ) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
 
-    //dispatch(showLoading())
+    dispatch(showLoading())
     
     const answerObj = { 
       authedUser ,
@@ -54,6 +53,6 @@ export function handleSaveAnswer ( qId , Option ) {
        answer: Option 
       } 
     return _saveQuestionAnswer( answerObj ).then( () => dispatch(answerQuestion()) ).catch(err => console.log("opppppppsssssss"))
-      //.then(() => dispatch(hideLoading()))
+      .then(() => dispatch(hideLoading()))
   }
 }

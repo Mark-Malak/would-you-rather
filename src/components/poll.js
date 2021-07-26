@@ -35,7 +35,7 @@ class Poll extends React.Component {
     }
 
         componentDidMount(){
-            const id = this.props.match.params.qID
+            const id = this.props.match.params.question_id
             console.log(id)
             this.setState ({question : this.props.questions[id]} )  
         }
@@ -59,15 +59,14 @@ class Poll extends React.Component {
                         <img src={user && user.avatarURL} class="myAvatar"></img>
                     </div>
 
-                    <div className="questionBody-poll">
+                    <div className="questionBody-poll card-poll">
                         <h4> Would you rather </h4>
                         <div style={{ 'text-align': 'left' }}  >
                             <input onClick={() => !chosed1 ? this.setState({ chosed1: true, chosen: 'optionOne' }) : {}} type="radio" value="Male" name="gender" /> {question && question.optionOne.text}
                             <br />
                             <hr />
                             <input onClick={() => !chosed2 ? this.setState({ chosed2: true, chosen: 'optionTwo' }) : {}} type="radio" value="Female" name="gender" /> {question && question.optionTwo.text}
-                            <br />
-                            <br />
+                           
                         </div>
                         <Button onClick={this.handleSubmit} disabled={!(chosed1 || chosed2)} className="sign-btn" variant="outlined">Submit</Button>
                     </div>

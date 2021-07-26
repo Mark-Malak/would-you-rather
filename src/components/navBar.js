@@ -2,8 +2,15 @@ import React from 'react';
 import { AppBar, Tabs, Tab  ,Avatar} from '@material-ui/core/';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser';
 class NavBar extends React.Component {
 
+
+    handleLogout(){
+        console.log('logging out ....')
+        const{dispatch} = this.props
+        dispatch( setAuthedUser(null) )
+    }
     render() {
         return (
             <div>
@@ -30,7 +37,7 @@ class NavBar extends React.Component {
                         
                        
                         <Link to = "/" >
-                            <Tab label="Logout" />
+                            {this.props.user ? <Tab onClick = {this.handleLogout.bind(this)} label="Logout" /> : ''}
                         </Link>
                     </Tabs>
                 </AppBar>

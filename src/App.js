@@ -10,19 +10,14 @@ import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
 import Poll from './components/Poll'
 import PollContainer from './components/PollContainer';
-
+import LoadingBar from 'react-redux-loading-bar'
 
 class App extends React.Component {
 
    componentDidMount() {
       this.props.dispatch(handleInitialData())
    }
-   // componentDidUpdate(prevProps , prevState){
-   //    console.log("somth changed reupdaaaaaaaaaaaaaaaaaaaaaaating")
-   //    if (prevState != null && prevState.questions !== this.state.questions) {
-   //       this.props.dispatch(handleInitialData())
-   //     }
-   // }
+
 
    render() {
 
@@ -34,7 +29,9 @@ class App extends React.Component {
                </div>
 
                <NavBar />
+               
             </div>
+            <LoadingBar />
             <div className="main">
                <br />
                <br />
@@ -55,7 +52,7 @@ class App extends React.Component {
                   <LeaderBoard />
                )} />
 
-               <Route path="/question/:qID"  component ={Poll} />
+               <Route path="/question/:question_id"  component ={Poll} />
 
             </div>
 

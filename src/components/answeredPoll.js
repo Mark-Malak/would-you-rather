@@ -15,11 +15,11 @@ class AnsweredPoll extends React.Component {
             </div>
             <div className="questionBody">
                 <div className="avatar">
-                  <img src={user.avatarURL} class="myAvatar"></img>
+                  <img src={user.avatarURL} class="myAvatar2"></img>
                 </div>
 
                 <div  className="questionBody-poll">
-                    <h2> Results: </h2>
+                    <h2 align="left" > Results: </h2>
                     <div>
                           <p>Would you rather {question.optionOne.text}</p>
                           <progress id="file" max="100" value={ (l1*100/total).toFixed(2)  } / >

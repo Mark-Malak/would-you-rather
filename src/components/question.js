@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 class Question extends React.Component {
     
     render() {
-        const { question, user , answered } = this.props;
+        const { question, user  } = this.props;
         console.log("user name is " + user.name);
-        const { author, optionOne } = question;
+        const {  optionOne } = question;
         return (
             <div className="question">
                 <div className="header">
@@ -24,11 +24,6 @@ class Question extends React.Component {
                         <p>{`..${optionOne.text}..`}</p>
                         <Link to={{
                             pathname: `/question/${question.id}` ,
-                            state: {
-                                question : question ,
-                                user : user , 
-                                answered 
-                            },
                         }}>
                             <Button className="sign-btn" variant="outlined">view poll</Button>
                         </Link>

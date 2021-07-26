@@ -1,13 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import { Avatar } from '@material-ui/core'; 
-import Typography from '@material-ui/core/Typography';
 import logo from './wur.png'; //
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser';
+import {   withRouter } from 'react-router-dom'
 
 const cardStyle = {
         margin: 'auto ',
@@ -15,6 +13,23 @@ const cardStyle = {
     }
 
 class Login extends React.Component{
+   
+    state = {
+        selectValue: null
+    }
+    
+    handleLogin(){
+        console.log('logging.....' , this.state.selectValue)
+        const{dispatch , history} = this.props
+        dispatch( setAuthedUser(this.state.selectValue) )
+        history.push(`/home`)
+        
+    }
+
+
+    handleChange(e){
+        this.setState({ selectValue: e.target.value });
+      }
     
 render()
     {return (
@@ -29,7 +44,8 @@ render()
             <img width="180" height="120" src={logo} />
             <h3 >sign in </h3>
 
-            <select className="dropdown" name="users">
+            <select value={this.state.selectValue} 
+                  onChange={this.handleChange.bind(this)} className="dropdown" name="users">
                 <option value="" disabled selected>Select User </option>
                 {
                    this.props.users && (this.props.usersID.map((id) => (
@@ -38,7 +54,9 @@ render()
                 }
             </select>
             <br />
-            <Button className="sign-btn"  variant="outlined" color="#000000" size="big">Sign in </Button>
+            
+                   <Button disabled = {this.state.selectValue === null } onClick ={this.handleLogin.bind(this)} className="sign-btn"  variant="outlined" color="#000000" size="big">Sign in </Button>
+
             </CardContent>
         </Card >
     );}
@@ -51,4 +69,4 @@ function mapStateToProps({ users }) {
     }
  }
 
- export default  connect(mapStateToProps)(Login) ; 
+ export default  withRouter( connect(mapStateToProps)(Login) ) ; 

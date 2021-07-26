@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions';
 import { receiveUsers } from '../actions/users';
 import { handleUsersUpdate } from '../actions/shared';
+import {   withRouter } from 'react-router-dom'
 const cardStyle = {
     margin: 'auto ',
     width: '30%'
@@ -36,9 +37,10 @@ class CreateQuestion extends React.Component {
         e.preventDefault()
         const { opt1, opt2 } = this.state
         console.log('options are : ', opt1, opt2)
-        const{dispatch} = this.props
+        const{dispatch , history } = this.props
         dispatch( handleAddQuestion(opt1 , opt2) )
         dispatch( handleUsersUpdate())
+        history.push(`/home`)
         
 
         this.setState(() => ({
@@ -65,7 +67,7 @@ class CreateQuestion extends React.Component {
                         <br/>
                         <hr /> 
                         <br/>
-                        <Button disabled = {opt1 === '' || opt2 ===''} onClick={this.handleSubmit} className="sign-btn" variant="outlined" color="#000000"> Submit</Button>
+                        <Button disabled = {opt1 === '' || opt2 ===''} onClick={this.handleSubmit.bind(this)} className="sign-btn" variant="outlined" color="#000000"> Submit</Button>
                     </CardContent>
                 </Card>
             </div>
@@ -73,4 +75,4 @@ class CreateQuestion extends React.Component {
     }
 }
 
-export default connect()(CreateQuestion) 
+export default withRouter( connect()(CreateQuestion) )
