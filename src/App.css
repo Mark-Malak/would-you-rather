@@ -33,6 +33,7 @@
 }
 .sign-btn{
   width: 95%;
+  margin :auto
 }
 
 .question-list-container{
@@ -86,19 +87,11 @@
   
 }
 
-.card-poll  {
- 
-  border: 1px rgb(228, 228, 228) solid;
-  text-align: center;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  height: 70%;
-  margin: 5px  ; 
-  
-  
-}
 
 .questionBody-poll{
   width:70% ; 
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .header{
@@ -159,4 +152,26 @@
     margin: 'auto ' ;
     width :  '30%'
 
+}
+
+.yourVote{
+  box-shadow: 0 2px 4px 0 rgba(51, 255, 0, 0.2);
+  border-style: solid;
+  border-color: rgb(0, 116, 19);
+  background: rgba(0, 116, 19, 0.295);
+  padding: 0;
+  margin: 10px;
+}
+
+.othersVote{
+  box-shadow: 0 2px 4px 0 rgba(161, 161, 161, 0.123);
+  border-style: solid;
+  border-color: rgba(110, 110, 110, 0.212);
+  background: rgba(110, 110, 110, 0.068);
+  padding: 0;
+  margin: 10px;
+}
+
+.active {
+  font-weight: bold;
 }

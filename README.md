@@ -1,5 +1,18 @@
 # Would You Rather Project
+## project description 
+this is a project made for udacity advanced front-end development nano degree , it is a would you rather game project which keeps track of your (answered and unanswered polls )  , you can use the navbar to navigate to 3 main sections which are : 
+1)Home : 
+where you have all your answered and unanswered polls to choose from , where you can click view poll to answer an un-answered poll or view your answere on an already answered one 
+2) New Question : 
+where you can create a new Poll by filling in the 2 options for the poll and clicking submit 
+3)Leaderboard : 
+where you can view all the scores of all the users ranked from highest to lowest 
+4)Log out 
+which allows you to logout again back to the login screen
 
+for installing and launching the app after cloning the repo on your machine :
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.

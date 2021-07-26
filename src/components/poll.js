@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { Avatar, Button } from '@material-ui/core'
-import { useLocation } from 'react-router'
+import React  from 'react';
+import { Button } from '@material-ui/core'
 import AnsweredPoll from './AnsweredPoll'
 import { connect } from 'react-redux'
 import { handleSaveAnswer } from '../actions/questions';
-import { render } from '@testing-library/react';
 import { handleInitialData } from '../actions/shared';
 const cardStyle = {
     margin: 'auto ',
@@ -27,8 +25,7 @@ class Poll extends React.Component {
         e.preventDefault();
         const { chosen  , question} = this.state;
         const { dispatch  } = this.props
-        console.log("sdsdsdsd");
-        
+      
         dispatch(handleSaveAnswer(question.id, chosen))
         dispatch(handleInitialData() , this.setState({ans:true})) ;
        
@@ -59,7 +56,7 @@ class Poll extends React.Component {
                         <img src={user && user.avatarURL} class="myAvatar"></img>
                     </div>
 
-                    <div className="questionBody-poll card-poll">
+                    <div className="questionBody-poll ">
                         <h4> Would you rather </h4>
                         <div style={{ 'text-align': 'left' }}  >
                             <input onClick={() => !chosed1 ? this.setState({ chosed1: true, chosen: 'optionOne' }) : {}} type="radio" value="Male" name="gender" /> {question && question.optionOne.text}
@@ -68,11 +65,13 @@ class Poll extends React.Component {
                             <input onClick={() => !chosed2 ? this.setState({ chosed2: true, chosen: 'optionTwo' }) : {}} type="radio" value="Female" name="gender" /> {question && question.optionTwo.text}
                            
                         </div>
+                        <br/>
+                        <br/>
                         <Button onClick={this.handleSubmit} disabled={!(chosed1 || chosed2)} className="sign-btn" variant="outlined">Submit</Button>
                     </div>
                 </div>
 
-            </div>) : <AnsweredPoll  user = {user} id = {question.id}/>
+            </div>) : <AnsweredPoll selectedOption = {this.state.chosen} id = {question.id}/>
         )
     }
 }
