@@ -1,6 +1,5 @@
 import React from 'react'
-import { Avatar, Button } from '@material-ui/core'
-import { formatQuestion } from '../utils/_DATA'
+import { Button } from '@material-ui/core'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 class Question extends React.Component {

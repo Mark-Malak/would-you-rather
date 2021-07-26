@@ -31,8 +31,8 @@ class Login extends React.Component{
         this.setState({ selectValue: e.target.value });
       }
     
-render()
-    {return (
+render(){
+    return (
         <Card style={cardStyle} variant="outlined">
             <CardContent>
                 <div>
@@ -41,21 +41,21 @@ render()
                 </div>
 
             <hr />
-            <img width="180" height="120" src={logo} />
+            <img alt="would you rather logo" width="180" height="120" src={logo} />
             <h3 >sign in </h3>
 
-            <select value={this.state.selectValue} 
+            <select value={this.state.selectValue ? this.state.selectValue : "" } 
                   onChange={this.handleChange.bind(this)} className="dropdown" name="users">
-                <option value="" disabled selected>Select User </option>
+                <option value="" disabled >Select User </option>
                 {
                    this.props.users && (this.props.usersID.map((id) => (
-                             <option value= {id} >{this.props.users[id].name}</option>
+                             <option key = {id} value= {id} >{this.props.users[id].name}</option>
                         )) )
                 }
             </select>
             <br />
             
-                   <Button disabled = {this.state.selectValue === null } onClick ={this.handleLogin.bind(this)} className="sign-btn"  variant="outlined" color="#000000" size="big">Sign in </Button>
+                   <Button disabled = {this.state.selectValue === null } onClick ={this.handleLogin.bind(this)} className="sign-btn"  variant="outlined"  size="large">Sign in </Button>
 
             </CardContent>
         </Card >

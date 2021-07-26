@@ -1,11 +1,13 @@
 import React from 'react';
-import { AppBar, Tabs, Tab  ,Avatar} from '@material-ui/core/';
+import { AppBar, Tabs, Tab } from '@material-ui/core/';
 import { Link  } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser';
 class NavBar extends React.Component {
 
-
+    state = {
+        tabValue : 4
+    }
     handleLogout(){
         console.log('logging out ....')
         const{dispatch} = this.props
@@ -17,22 +19,21 @@ class NavBar extends React.Component {
 
                 <AppBar  color="default" position="static">
                     <Tabs
-                        variant="fullWidth"
                         aria-label="nav tabs example"
                     >
                     
                         <Link to = "/home" className = "active" style={{ textDecoration: 'none' , color :'black'}} >
-                            <Tab label="Home"></Tab>
+                            <Tab onClick = {() => this.setState({tabValue : 0})}  label="Home"></Tab>
                         </Link>
 
                         <Link to = "/add"  style={{ textDecoration: 'none' , color :'black'}}>
-                            <Tab label="New Question" />
+                            <Tab onClick = {() =>this.setState({tabValue : 1})} label="New Question" />
                         </Link>
-                        <Link to = "/leaderboard" style={{ textDecoration: 'none' , color :'black'  , 'font-weight': 'bold'}}>
-                            <Tab label="Leaderboard" />
+                        <Link to = "/leaderboard" style={{ textDecoration: 'none' , color :'black'  }}>
+                            <Tab onClick = {() =>this.setState({tabValue : 2})} label="Leaderboard" />
                         </Link>
                         
-                             <Tab color ="#000000" disabled label= {this.props.user ? "Hello , Dear  " + this.props.user.name : ""} />
+                             <Tab  disabled label= {this.props.user ? "Hello , Dear  " + this.props.user.name : ""} />
                             
                         
                        

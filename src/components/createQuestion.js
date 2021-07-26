@@ -4,7 +4,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions';
-import { receiveUsers } from '../actions/users';
 import { handleUsersUpdate } from '../actions/shared';
 import {   withRouter } from 'react-router-dom'
 const cardStyle = {
@@ -67,7 +66,7 @@ class CreateQuestion extends React.Component {
                         <br/>
                         <hr /> 
                         <br/>
-                        <Button disabled = {opt1 === '' || opt2 ===''} onClick={this.handleSubmit.bind(this)} className="sign-btn" variant="outlined" color="#000000"> Submit</Button>
+                        <Button disabled = {opt1 === '' || opt2 ===''} onClick={this.handleSubmit.bind(this)} className="sign-btn" variant="outlined" > Submit</Button>
                     </CardContent>
                 </Card>
             </div>

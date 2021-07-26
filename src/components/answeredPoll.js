@@ -20,7 +20,7 @@ class AnsweredPoll extends React.Component {
             </div>
             <div className="questionBody">
                 <div className="avatar">
-                  <img src={author.avatarURL} class="myAvatar2"></img>
+                  <img alt="avatar" src={author.avatarURL} class="myAvatar2"></img>
                 </div>
 
                 <div  className="questionBody-poll">

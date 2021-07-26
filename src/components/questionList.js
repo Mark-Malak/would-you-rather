@@ -1,11 +1,7 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
 import Question from './Question';
-import Poll from './Poll';
-import AnsweredPoll from './AnsweredPoll';
 import { connect } from 'react-redux'
-import { render } from '@testing-library/react';
-import authedUser from '../reducers/authedUser';
 class QuestionList extends React.Component {
     state = {
         answered: false,

@@ -9,7 +9,6 @@ import LeaderBoard from './components/LeaderBoard';
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
 import Poll from './components/Poll'
-import PollContainer from './components/PollContainer';
 import LoadingBar from 'react-redux-loading-bar'
 
 class App extends React.Component {

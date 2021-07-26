@@ -1,7 +1,6 @@
 import { getInitialData , getUsers} from '../utils/api'
 import { receiveUsers } from './users'
 import { receiveQuestions } from './questions'
-import { setAuthedUser } from './authedUser'
 
 //const AUTHED_ID = 'tylermcginnis'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Avatar, Button } from '@material-ui/core'
 class LeaderBoardItem extends React.Component {
     render() {
         const { user } = this.props;
