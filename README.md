@@ -22,7 +22,6 @@ Using the provided starter code, you'll build a React/Redux front end for the ap
 ## Data
 
 There are two types of objects stored in our database:
-
 * Users
 * Questions
 
