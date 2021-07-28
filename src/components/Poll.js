@@ -2,6 +2,7 @@ import React  from 'react';
 import { Button } from '@material-ui/core'
 import AnsweredPoll from './AnsweredPoll'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 import { handleSaveAnswer } from '../actions/questions';
 import { handleInitialData } from '../actions/shared';
 const cardStyle = {
@@ -40,12 +41,22 @@ class Poll extends React.Component {
     render() {
         const { chosed1, chosed2 , question} = this.state
         const {  users  , authedUser } = this.props
+        
+        if(typeof question === 'undefined'){
+            return(
+                     <div>
+                       <h1>404 -Page Not Found! </h1>
+                       <Link to="/home">
+                          Back to home page
+                       </Link>
+                    </div>
+            )
+        }
         const user = users[question.author]
         let ans = false 
         if( Object.keys(users[authedUser].answers).includes(question.id)){
             ans = true 
         }
-        
         return (
            !ans? (<div style={cardStyle} className="question">
                 <div className="header">

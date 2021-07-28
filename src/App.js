@@ -35,47 +35,48 @@ class App extends React.Component {
                <br />
                <br />
 
-               {this.props.authedUser ? <div>
-                  <Switch>
-                     <Route path='/add' render={() => (
-                        <CreateQuestion />
-                     )} />
+               {this.props.authedUser ?
+                  <div>
+                     <Switch>
+                        <Route path='/add' render={() => (
+                           <CreateQuestion />
+                        )} />
 
-                     <Route exact path='/home' render={() => (
-                        <div>
-                           {this.props.loading === true
-                              ? null
-                              : <QuestionList />}
-                        </div>
-                     )} />
-                     <Route exact path='/leaderboard' render={() => (
-                        <LeaderBoard />
-                     )} />
+                        <Route exact path='/home' render={() => (
+                           <div>
+                              {this.props.loading === true
+                                 ? null
+                                 : <QuestionList />}
+                           </div>
+                        )} />
+                        <Route exact path='/leaderboard' render={() => (
+                           <LeaderBoard />
+                        )} />
 
-                     <Route path="/question/:question_id" component={Poll} />
-                     <Route render={() => (
-                        <div>
-                           <h1>404 - Not Found! </h1>
-                           <Link to="/home">
-                              Back to home page
-                           </Link>
-                        </div>
-                     )} />)
-                  </Switch>
-               </div> :
+                        <Route path="/questions/:question_id" component={Poll} />
+                        <Route render={() => (
+                           <div>
+                              <h1>404 -Page Not Found! </h1>
+                              <Link to="/home">
+                                 Back to home page 
+                              </Link>
+                           </div>
+                        )} />)
+                     </Switch>
+                  </div> :
+                 
                   <div>
                      <Switch>
                         <Route exact path='/' render={() => (
                            <Login />
                         )} />
+
+
                         <Route render={() => (
-                           <div>
-                              <h1>404 - Access denied , sign in first! </h1>
-                              <Link to="/">
-                                 Back to sign in page
-                              </Link>
-                           </div>
+                           <Login />
                         )} />
+
+
                      </Switch>
                   </div>
 

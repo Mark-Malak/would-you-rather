@@ -22,7 +22,12 @@ class Login extends React.Component{
         console.log('logging.....' , this.state.selectValue)
         const{dispatch , history} = this.props
         dispatch( setAuthedUser(this.state.selectValue) )
-        history.push(`/home`)
+        if(history.location.pathname === '/'){
+             history.push(`/home`)
+        }
+       
+       
+        
         
     }
 

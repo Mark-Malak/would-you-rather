@@ -22,7 +22,7 @@ class Question extends React.Component {
                         <h4> Would you rather </h4>
                         <p>{`..${optionOne.text}..`}</p>
                         <Link to={{
-                            pathname: `/question/${question.id}` ,
+                            pathname: `/questions/${question.id}` ,
                         }}>
                             <Button className="sign-btn" variant="outlined">view poll</Button>
                         </Link>
