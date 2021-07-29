@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core'
 import AnsweredPoll from './AnsweredPoll'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { handleSaveAnswer } from '../actions/questions';
+import { handleSaveAnswer } from '../actions/shared';
 import { handleInitialData } from '../actions/shared';
 const cardStyle = {
     margin: 'auto ',
@@ -28,8 +28,8 @@ class Poll extends React.Component {
         const { dispatch  } = this.props
       
         dispatch(handleSaveAnswer(question.id, chosen))
-        dispatch(handleInitialData() , this.setState({ans:true})) ;
-       
+        //dispatch(handleInitialData())
+        this.setState({ans:true})
     }
 
         componentDidMount(){

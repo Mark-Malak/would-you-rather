@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions';
+import { handleAddQuestion } from '../actions/shared';
 import { handleUsersUpdate } from '../actions/shared';
 import {   withRouter } from 'react-router-dom'
 const cardStyle = {
@@ -38,7 +38,7 @@ class CreateQuestion extends React.Component {
         console.log('options are : ', opt1, opt2)
         const{dispatch , history } = this.props
         dispatch( handleAddQuestion(opt1 , opt2) )
-        dispatch( handleUsersUpdate())
+      //  dispatch( handleUsersUpdate())
         history.push(`/home`)
         
 
