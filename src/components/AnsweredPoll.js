@@ -20,7 +20,7 @@ class AnsweredPoll extends React.Component {
             </div>
             <div className="questionBody">
                 <div className="avatar">
-                  <img alt="avatar" src={author.avatarURL} class="myAvatar2"></img>
+                  <img alt="avatar" src={author.avatarURL} className ="myAvatar2"></img>
                 </div>
 
                 <div  className="questionBody-poll">
@@ -30,7 +30,7 @@ class AnsweredPoll extends React.Component {
                      { selectedoption ? <h4 >your answer</h4> : ''}
                           <p>Would you rather {question.optionOne.text}</p>
                           <progress id="file" max="100" value={ (l1*100/total).toFixed(2)  } / >
-                          <label for="file">{ (l1*100/total).toFixed(2)  }% </label>
+                          <label htmlFor="file">{ (l1*100/total).toFixed(2)  }% </label>
                           <p> {l1} out of {total} votes </p>
                     </div>
                   
@@ -39,7 +39,7 @@ class AnsweredPoll extends React.Component {
                          
                           <p>Would you rather {question.optionTwo.text}</p>
                           <progress id="file" max="100" value={  (l2*100/total).toFixed(2)} />
-                          <label for="file"> {  (l2*100/total).toFixed(2)}%</label>
+                          <label htmlFor="file"> {  (l2*100/total).toFixed(2)}%</label>
                           <p> {l2} out of {total} votes </p>
                     </div>
                    

@@ -1,0 +1,41 @@
+
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+ .navbar ul li {
+    display: block;
+    flex: 0 1 auto; /* Default */
+    float: left;
+    padding-left: 50px;
+  }
+  
+  .navbar ul li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .userName {
+    color: rgb(107, 107, 107);
+  }
+  
+  .navbar ul li a:hover:not(.active) {
+    background-color: #ddd;
+  }
+  
+  .navbar ul li a.active {
+    color: white;
+    background-color: #04AA6D;
+  }

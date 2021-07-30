@@ -4,7 +4,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared';
-import { handleUsersUpdate } from '../actions/shared';
 import {   withRouter } from 'react-router-dom'
 const cardStyle = {
     margin: 'auto ',

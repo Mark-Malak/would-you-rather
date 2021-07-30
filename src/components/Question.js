@@ -15,7 +15,7 @@ class Question extends React.Component {
                 </div>
                 <div className="questionBody">
                     <div className="avatar">
-                        <img src={user.avatarURL} class="myAvatar"></img>
+                        <img alt = "avatar" src={user.avatarURL} className="myAvatar"></img>
                     </div>
 
                     <div className="questionBody-poll">

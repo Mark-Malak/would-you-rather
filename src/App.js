@@ -27,7 +27,7 @@ class App extends React.Component {
                   <h4 style={{ margin: '0' }}>Would you rather app </h4>
                </div>
 
-               <NavBar />
+              <NavBar/>
 
             </div>
             <LoadingBar />

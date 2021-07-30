@@ -4,7 +4,6 @@ import AnsweredPoll from './AnsweredPoll'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { handleSaveAnswer } from '../actions/shared';
-import { handleInitialData } from '../actions/shared';
 const cardStyle = {
     margin: 'auto ',
     width: '30%'
@@ -64,12 +63,12 @@ class Poll extends React.Component {
                 </div>
                 <div className="questionBody">
                     <div className="avatar">
-                        <img alt="avatar"  src={user && user.avatarURL} class="myAvatar"></img>
+                        <img alt="avatar"  src={user && user.avatarURL} className  ="myAvatar"></img>
                     </div>
 
                     <div className="questionBody-poll ">
                         <h4> Would you rather </h4>
-                        <div style={{ 'text-align': 'left' }}  >
+                        <div style={{ 'textAlign': 'left' }}  >
                             <input onClick={() => !chosed1 ? this.setState({ chosed1: true, chosen: 'optionOne' }) : {}} type="radio" value="Male" name="gender" /> {question && question.optionOne.text}
                             <br />
                             <hr />

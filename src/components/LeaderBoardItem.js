@@ -11,12 +11,12 @@ class LeaderBoardItem extends React.Component {
 
                     <div className="questionBody">
                         <div className="avatar">
-                            <img src={user.avatarURL} class="myAvatar"></img>
+                            <img alt = "avatar" src={user.avatarURL} className ="myAvatar"></img>
                         </div>
 
                         <div className="shadow" style={{ width: '55%' }}>
                             <div >
-                                <h2 className="header" style={{ 'padding-left': '15px' }} align="left" > {user.name} </h2>
+                                <h2 className="header" style={{ 'paddingLeft': '15px' }} align="left" > {user.name} </h2>
                             </div>
                             <p>{"Answered questions :     " + ansCount}</p>
                             <hr />

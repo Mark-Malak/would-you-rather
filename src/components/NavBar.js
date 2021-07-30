@@ -1,47 +1,52 @@
 import React from 'react';
-import { AppBar, Tabs, Tab } from '@material-ui/core/';
-import { Link  } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser';
+import styles from './mystyle.module.css';
+
 class NavBar extends React.Component {
 
     state = {
-        tabValue : 4
+        tabValue: 4
     }
-    handleLogout(){
+    handleLogout() {
         console.log('logging out ....')
-        const{dispatch} = this.props
-        dispatch( setAuthedUser(null) )
+        const { dispatch } = this.props
+        dispatch(setAuthedUser(null))
     }
+    //refrences : https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_gray
+    //https://stackoverflow.com/questions/23226888/horizontal-list-items-fit-to-100-with-even-spacing/23226961
     render() {
         return (
-            <div>
+            <div className = {styles.navbar}>
 
-                <AppBar  color="default" position="static">
-                    <Tabs
-                        aria-label="nav tabs example"
-                    >
-                    
-                        <Link to = "/home" className = "active" style={{ textDecoration: 'none' , color :'black'}} >
-                            <Tab onClick = {() => this.setState({tabValue : 0})}  label="Home"></Tab>
+                <ul  >
+                    <li>
+                        <Link to="/home"  style={{ textDecoration: 'none' }} >
+                            Home
                         </Link>
-
-                        <Link to = "/add"  style={{ textDecoration: 'none' , color :'black'}}>
-                            <Tab onClick = {() =>this.setState({tabValue : 1})} label="New Question" />
+                    </li>
+                    <li>
+                        <Link to="/add" style={{ textDecoration: 'none' }}>
+                            New Question
                         </Link>
-                        <Link to = "/leaderboard" style={{ textDecoration: 'none' , color :'black'  }}>
-                            <Tab onClick = {() =>this.setState({tabValue : 2})} label="Leaderboard" />
+                    </li>
+                    <li>
+                        <Link to="/leaderboard" style={{ textDecoration: 'none' }}>
+                            Leaderboard
                         </Link>
+                    </li>
+                    <li>
+                        <p className = {styles.userName}>{this.props.user ? "Hello , Dear  " + this.props.user.name : ""} </p>
+                    </li>
+                    <li>
                         
-                             <Tab  disabled label= {this.props.user ? "Hello , Dear  " + this.props.user.name : ""} />
-                            
-                        
+                        {this.props.user ? <Link to="/" style={{ textDecoration: 'none' }} onClick={this.handleLogout.bind(this)} > Logout</Link>: ''}
                        
-                        <Link to = "/" style={{ textDecoration: 'none' , color :'black'}}>
-                            {this.props.user ? <Tab onClick = {this.handleLogout.bind(this)} label="Logout" /> : ''}
-                        </Link>
-                    </Tabs>
-                </AppBar>
+                    </li>
+                </ul>
+
+
             </div>
 
         )
@@ -51,7 +56,7 @@ class NavBar extends React.Component {
 
 }
 
-function mapStateToProps({ users , authedUser }) {
+function mapStateToProps({ users, authedUser }) {
 
     return {
         user: users[authedUser]
